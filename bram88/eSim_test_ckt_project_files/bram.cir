@@ -1,0 +1,52 @@
+* C:\Users\VLSI\eSim-Workspace\bram\bram.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 04/03/2026 11:06:46
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+v1  clk0 GND pulse		
+v2  we0 GND pulse		
+U18  addr3 adr2 adr1 adr0 Net-_U18-Pad5_ Net-_U18-Pad6_ Net-_U18-Pad7_ Net-_U18-Pad8_ adc_bridge_4		
+U19  d7 d6 d5 d4 d3 d2 d1 d0 Net-_U19-Pad9_ Net-_U19-Pad10_ Net-_U19-Pad11_ Net-_U19-Pad12_ Net-_U19-Pad13_ Net-_U19-Pad14_ Net-_U19-Pad15_ Net-_U19-Pad16_ adc_bridge_8		
+U17  clk0 we0 Net-_U17-Pad3_ Net-_U17-Pad4_ adc_bridge_2		
+U10  clk0 plot_v1		
+U15  we0 plot_v1		
+U6  addr3 plot_v1		
+U13  adr2 plot_v1		
+U16  adr1 plot_v1		
+U8  adr0 plot_v1		
+U1  adr0 plot_v1		
+U3  d7 plot_v1		
+U11  d6 plot_v1		
+U9  d5 plot_v1		
+U5  d4 plot_v1		
+U12  d3 plot_v1		
+U2  d2 plot_v1		
+U14  d1 plot_v1		
+U7  d0 plot_v1		
+U20  Net-_U20-Pad1_ Net-_U20-Pad2_ Net-_U20-Pad3_ Net-_U20-Pad4_ Net-_U20-Pad5_ Net-_U20-Pad6_ Net-_U20-Pad7_ Net-_U20-Pad8_ q7 q6 q5 q4 q3 q2 q1 q0 dac_bridge_8		
+U21  q7 plot_v1		
+U22  q6 plot_v1		
+U23  q5 plot_v1		
+U24  q4 plot_v1		
+U25  q3 plot_v1		
+U26  q2 plot_v1		
+U27  q1 plot_v1		
+U28  q0 plot_v1		
+v3  addr3 GND pulse		
+v4  adr2 GND pulse		
+v5  adr1 GND pulse		
+v6  adr0 GND pulse		
+v7  d7 GND pulse		
+v8  d6 GND pulse		
+v9  d5 GND pulse		
+v10  d4 GND pulse		
+v11  d3 GND pulse		
+v12  d2 GND pulse		
+v13  d1 GND pulse		
+v14  d0 GND pulse		
+U4  Net-_U17-Pad3_ Net-_U17-Pad4_ Net-_U18-Pad5_ Net-_U18-Pad6_ Net-_U18-Pad7_ Net-_U18-Pad8_ Net-_U19-Pad9_ Net-_U19-Pad10_ Net-_U19-Pad11_ Net-_U19-Pad12_ Net-_U19-Pad13_ Net-_U19-Pad14_ Net-_U19-Pad15_ Net-_U19-Pad16_ Net-_U20-Pad1_ Net-_U20-Pad2_ Net-_U20-Pad3_ Net-_U20-Pad4_ Net-_U20-Pad5_ Net-_U20-Pad6_ Net-_U20-Pad7_ Net-_U20-Pad8_ bram		
+
+.end
