@@ -1,0 +1,71 @@
+* c:\users\vlsi\esim-workspace\bram\bram.cir
+
+v1  clk0 gnd pulse(0 1 0.01ns 0.001ns 0.001ns 10ns 20ns)
+v2  we0 gnd pulse(0 1 0.01ns 0.001ns 0.001ns 15ns 50ns)
+* u18  addr3 adr2 adr1 adr0 net-_u18-pad5_ net-_u18-pad6_ net-_u18-pad7_ net-_u18-pad8_ adc_bridge_4
+* u19  d7 d6 d5 d4 d3 d2 d1 d0 net-_u19-pad9_ net-_u19-pad10_ net-_u19-pad11_ net-_u19-pad12_ net-_u19-pad13_ net-_u19-pad14_ net-_u19-pad15_ net-_u19-pad16_ adc_bridge_8
+* u17  clk0 we0 net-_u17-pad3_ net-_u17-pad4_ adc_bridge_2
+* u10  clk0 plot_v1
+* u15  we0 plot_v1
+* u6  addr3 plot_v1
+* u13  adr2 plot_v1
+* u16  adr1 plot_v1
+* u8  adr0 plot_v1
+* u1  adr0 plot_v1
+* u3  d7 plot_v1
+* u11  d6 plot_v1
+* u9  d5 plot_v1
+* u5  d4 plot_v1
+* u12  d3 plot_v1
+* u2  d2 plot_v1
+* u14  d1 plot_v1
+* u7  d0 plot_v1
+* u20  net-_u20-pad1_ net-_u20-pad2_ net-_u20-pad3_ net-_u20-pad4_ net-_u20-pad5_ net-_u20-pad6_ net-_u20-pad7_ net-_u20-pad8_ q7 q6 q5 q4 q3 q2 q1 q0 dac_bridge_8
+* u21  q7 plot_v1
+* u22  q6 plot_v1
+* u23  q5 plot_v1
+* u24  q4 plot_v1
+* u25  q3 plot_v1
+* u26  q2 plot_v1
+* u27  q1 plot_v1
+* u28  q0 plot_v1
+v3 addr3 gnd pulse(0 5 0ns 0.1ns 0.1ns 160ns 320ns)
+v4 adr2  gnd pulse(0 5 0ns 0.1ns 0.1ns 80ns 160ns)
+v5 adr1  gnd pulse(0 5 0ns 0.1ns 0.1ns 40ns 80ns)
+v6 adr0  gnd pulse(0 5 0ns 0.1ns 0.1ns 20ns 40ns)
+v7 d7 gnd dc 0
+v8 d6 gnd dc 0
+v9 d5 gnd dc 0
+v10 d4 gnd dc 0
+v11 d3 gnd pulse(0 5 0ns 0.1ns 0.1ns 80ns 160ns)
+v12 d2 gnd pulse(0 5 0ns 0.1ns 0.1ns 40ns 80ns)
+v13 d1 gnd pulse(0 5 0ns 0.1ns 0.1ns 20ns 40ns)
+v14 d0 gnd pulse(0 5 0ns 0.1ns 0.1ns 10ns 20ns)
+* u4  net-_u17-pad3_ net-_u17-pad4_ net-_u18-pad5_ net-_u18-pad6_ net-_u18-pad7_ net-_u18-pad8_ net-_u19-pad9_ net-_u19-pad10_ net-_u19-pad11_ net-_u19-pad12_ net-_u19-pad13_ net-_u19-pad14_ net-_u19-pad15_ net-_u19-pad16_ net-_u20-pad1_ net-_u20-pad2_ net-_u20-pad3_ net-_u20-pad4_ net-_u20-pad5_ net-_u20-pad6_ net-_u20-pad7_ net-_u20-pad8_ bram
+a1 [addr3 adr2 adr1 adr0 ] [net-_u18-pad5_ net-_u18-pad6_ net-_u18-pad7_ net-_u18-pad8_ ] u18
+a2 [d7 d6 d5 d4 d3 d2 d1 d0 ] [net-_u19-pad9_ net-_u19-pad10_ net-_u19-pad11_ net-_u19-pad12_ net-_u19-pad13_ net-_u19-pad14_ net-_u19-pad15_ net-_u19-pad16_ ] u19
+a3 [clk0 we0 ] [net-_u17-pad3_ net-_u17-pad4_ ] u17
+a4 [net-_u20-pad1_ net-_u20-pad2_ net-_u20-pad3_ net-_u20-pad4_ net-_u20-pad5_ net-_u20-pad6_ net-_u20-pad7_ net-_u20-pad8_ ] [q7 q6 q5 q4 q3 q2 q1 q0 ] u20
+a5 [net-_u17-pad3_ ] [net-_u17-pad4_ ] [net-_u18-pad5_ net-_u18-pad6_ net-_u18-pad7_ net-_u18-pad8_ ] [net-_u19-pad9_ net-_u19-pad10_ net-_u19-pad11_ net-_u19-pad12_ net-_u19-pad13_ net-_u19-pad14_ net-_u19-pad15_ net-_u19-pad16_ ] [net-_u20-pad1_ net-_u20-pad2_ net-_u20-pad3_ net-_u20-pad4_ net-_u20-pad5_ net-_u20-pad6_ net-_u20-pad7_ net-_u20-pad8_ ] u4
+* Schematic Name:                             adc_bridge_4, NgSpice Name: adc_bridge
+.model u18 adc_bridge(in_low=0.4 in_high=0.6 rise_delay=1e-9 fall_delay=1e-9 ) 
+* Schematic Name:                             adc_bridge_8, NgSpice Name: adc_bridge
+.model u19 adc_bridge(in_low=0.4 in_high=0.6 rise_delay=1e-9 fall_delay=1e-9 ) 
+* Schematic Name:                             adc_bridge_2, NgSpice Name: adc_bridge
+.model u17 adc_bridge(in_low=0.4 in_high=0.6 rise_delay=1e-9 fall_delay=1e-9 ) 
+* Schematic Name:                             dac_bridge_8, NgSpice Name: dac_bridge
+.model u20 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+* Schematic Name:                             bram, NgSpice Name: bram
+.model u4 bram(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+.tran 1e-09 300e-09 0e-09
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(addr0)+6 v(adr1)+12 v(adr2)+18 v(addr3)+24 v(we0)+30 v(clk0)+36
+plot v(d0)+6 v(d1)+12 v(d2)+18 v(d3)+24 v(d4)+30 v(d5)+36 v(d6)+42 v(d7)+48
+plot v(q0)+6 v(q1)+12 v(q2)+18 v(q3)+24 v(q4)+30 v(q5)+36 v(q6)+42 v(q7)+48
+.endc
+.end
