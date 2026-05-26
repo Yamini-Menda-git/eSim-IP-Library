@@ -1,0 +1,95 @@
+* c:\users\chaitanya\esim-workspace\divider_8bit_test\divider_8bit_test.cir
+
+.include divider_8bit_subcircuit.sub
+x1 dividend7 dividend6 dividend5 dividend4 dividend3 dividend2 dividend1 dividend0 divisor7 divisor6 divisor5 divisor4 divisor3 divisor2 divisor1 divisor0 quotient7 quotient6 quotient5 quotient4 quotient3 quotient2 quotient1 quotient0 remainder7 remainder6 remainder5 remainder4 remainder3 remainder2 remainder1 remainder0 div_by_zero divider_8bit_subcircuit
+v2  divisor7 gnd pulse(0 0 0 0 0 100n 200n)
+v4  divisor6 gnd pulse(0 0 0 0 0 100n 200n)
+v6  divisor5 gnd pulse(0 0 0 0 0 100n 200n)
+v8  divisor4 gnd pulse(0 0 0 0 0 100n 200n)
+v10  divisor3 gnd pulse(0 0 0 0 0 100n 200n)
+v12  divisor2 gnd pulse(5 0 50n 0 0 100n 200n)
+v13  divisor1 gnd pulse(0 0 0 0 0 100n 200n)
+v15  divisor0 gnd pulse(0 0 0 1n 1n 100n 200n)
+v1  dividend0 gnd pulse(5 5 0 0 0 100n 200n)
+v3  dividend1 gnd pulse(5 5 0 0 0 100n 200n)
+v5  dividend2 gnd pulse(0 0 0 0 0 100n 200n)
+v7  dividend3 gnd pulse(5 5 0 0 0 100n 200n)
+v9  dividend4 gnd pulse(5 5 0 0 0 100n 200n)
+v11  dividend5 gnd pulse(0 0 0 1n 1n 200n 400n)
+v14  dividend6 gnd pulse(0 0 0 0 0 100n 200n)
+v16  dividend7 gnd pulse(0 0 0 0 0 100n 200n)
+* u1  quotient7 plot_v1
+* u3  quotient6 plot_v1
+* u5  quotient5 plot_v1
+* u7  quotient4 plot_v1
+* u9  quotient3 plot_v1
+* u11  quotient2 plot_v1
+* u13  quotient1 plot_v1
+* u15  quotient0 plot_v1
+* u2  div_by_zero plot_v1
+* u4  remainder0 plot_v1
+* u6  remainder1 plot_v1
+* u8  remainder2 plot_v1
+* u10  remainder3 plot_v1
+* u12  remainder4 plot_v1
+* u14  remainder5 plot_v1
+* u16  remainder6 plot_v1
+* u17  remainder7 plot_v1
+* u33  dividend7 plot_v1
+* u30  dividend6 plot_v1
+* u28  dividend5 plot_v1
+* u26  dividend4 plot_v1
+* u24  dividend3 plot_v1
+* u22  dividend2 plot_v1
+* u20  dividend1 plot_v1
+* u18  dividend0 plot_v1
+* u32  divisor0 plot_v1
+* u31  divisor1 plot_v1
+* u29  divisor2 plot_v1
+* u27  divisor3 plot_v1
+* u25  divisor4 plot_v1
+* u23  divisor5 plot_v1
+* u21  divisor6 plot_v1
+* u19  divisor7 plot_v1
+.tran 1e-09 500e-09 0e-09
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(quotient7)
+plot v(quotient6)
+plot v(quotient5)
+plot v(quotient4)
+plot v(quotient3)
+plot v(quotient2)
+plot v(quotient1)
+plot v(quotient0)
+plot v(div_by_zero)
+plot v(remainder0)
+plot v(remainder1)
+plot v(remainder2)
+plot v(remainder3)
+plot v(remainder4)
+plot v(remainder5)
+plot v(remainder6)
+plot v(remainder7)
+plot v(dividend7)
+plot v(dividend6)
+plot v(dividend5)
+plot v(dividend4)
+plot v(dividend3)
+plot v(dividend2)
+plot v(dividend1)
+plot v(dividend0)
+plot v(divisor0)
+plot v(divisor1)
+plot v(divisor2)
+plot v(divisor3)
+plot v(divisor4)
+plot v(divisor5)
+plot v(divisor6)
+plot v(divisor7)
+.endc
+.end

@@ -1,0 +1,49 @@
+* C:\FOSSEE\eSim\library\SubcircuitLibrary\divider_8bit_subcircuit\divider_8bit_subcircuit.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 05/21/26 12:14:53
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+U1  Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ Net-_U1-Pad4_ Net-_U1-Pad5_ Net-_U1-Pad6_ Net-_U1-Pad7_ Net-_U1-Pad8_ Net-_U1-Pad9_ Net-_U1-Pad10_ Net-_U1-Pad11_ Net-_U1-Pad12_ Net-_U1-Pad13_ Net-_U1-Pad14_ Net-_U1-Pad15_ Net-_U1-Pad16_ Net-_U1-Pad17_ Net-_U1-Pad18_ Net-_U1-Pad19_ Net-_U1-Pad20_ Net-_U1-Pad21_ Net-_U1-Pad22_ Net-_U1-Pad23_ Net-_U1-Pad24_ Net-_U1-Pad25_ Net-_U1-Pad26_ Net-_U1-Pad27_ Net-_U1-Pad28_ Net-_U1-Pad29_ Net-_U1-Pad30_ Net-_U1-Pad31_ Net-_U1-Pad32_ Net-_U1-Pad33_ divider_8bit
+U3  Net-_U2-Pad1_ Net-_U2-Pad2_ Net-_U2-Pad3_ Net-_U2-Pad4_ Net-_U2-Pad5_ Net-_U2-Pad6_ Net-_U2-Pad7_ Net-_U2-Pad8_ Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ Net-_U1-Pad4_ Net-_U1-Pad5_ Net-_U1-Pad6_ Net-_U1-Pad7_ Net-_U1-Pad8_ adc_bridge_8
+U4  Net-_U2-Pad9_ Net-_U2-Pad10_ Net-_U2-Pad11_ Net-_U2-Pad12_ Net-_U2-Pad13_ Net-_U2-Pad14_ Net-_U2-Pad15_ Net-_U2-Pad16_ Net-_U1-Pad9_ Net-_U1-Pad10_ Net-_U1-Pad11_ Net-_U1-Pad12_ Net-_U1-Pad13_ Net-_U1-Pad14_ Net-_U1-Pad15_ Net-_U1-Pad16_ adc_bridge_8
+U5  Net-_U1-Pad17_ Net-_U1-Pad18_ Net-_U1-Pad19_ Net-_U1-Pad20_ Net-_U1-Pad21_ Net-_U1-Pad22_ Net-_U1-Pad23_ Net-_U1-Pad24_ Net-_U2-Pad17_ Net-_U2-Pad18_ Net-_U2-Pad19_ Net-_U2-Pad20_ Net-_U2-Pad21_ Net-_U2-Pad22_ Net-_U2-Pad23_ Net-_U2-Pad24_ dac_bridge_8
+U6  Net-_U1-Pad25_ Net-_U1-Pad26_ Net-_U1-Pad27_ Net-_U1-Pad28_ Net-_U1-Pad29_ Net-_U1-Pad30_ Net-_U1-Pad31_ Net-_U1-Pad32_ Net-_U2-Pad25_ Net-_U2-Pad26_ Net-_U6-Pad11_ Net-_U6-Pad12_ Net-_U6-Pad13_ Net-_U6-Pad14_ Net-_U6-Pad15_ Net-_U6-Pad16_ dac_bridge_8
+U7  Net-_U1-Pad33_ Net-_U7-Pad2_ dac_bridge_1
+U_p1   Net-_U2-Pad1_   PORT
+U_p2   Net-_U2-Pad2_   PORT
+U_p3   Net-_U2-Pad3_   PORT
+U_p4   Net-_U2-Pad4_   PORT
+U_p5   Net-_U2-Pad5_   PORT
+U_p6   Net-_U2-Pad6_   PORT
+U_p7   Net-_U2-Pad7_   PORT
+U_p8   Net-_U2-Pad8_   PORT
+U_p9   Net-_U2-Pad9_   PORT
+U_p10  Net-_U2-Pad10_  PORT
+U_p11  Net-_U2-Pad11_  PORT
+U_p12  Net-_U2-Pad12_  PORT
+U_p13  Net-_U2-Pad13_  PORT
+U_p14  Net-_U2-Pad14_  PORT
+U_p15  Net-_U2-Pad15_  PORT
+U_p16  Net-_U2-Pad16_  PORT
+U_p17  Net-_U2-Pad17_  PORT
+U_p18  Net-_U2-Pad18_  PORT
+U_p19  Net-_U2-Pad19_  PORT
+U_p20  Net-_U2-Pad20_  PORT
+U_p21  Net-_U2-Pad21_  PORT
+U_p22  Net-_U2-Pad22_  PORT
+U_p23  Net-_U2-Pad23_  PORT
+U_p24  Net-_U2-Pad24_  PORT
+U_p25  Net-_U2-Pad25_  PORT
+U_p26  Net-_U2-Pad26_  PORT
+U_p27  Net-_U6-Pad11_  PORT
+U_p28  Net-_U6-Pad12_  PORT
+U_p29  Net-_U6-Pad13_  PORT
+U_p30  Net-_U6-Pad14_  PORT
+U_p31  Net-_U6-Pad15_  PORT
+U_p32  Net-_U6-Pad16_  PORT
+U_p33  Net-_U7-Pad2_   PORT
+
+.end
