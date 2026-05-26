@@ -1,0 +1,75 @@
+* c:\users\chaitanya\esim-workspace\boothmultiplier_8bit_test\boothmultiplier_8bit_test.cir
+
+.include boothmultiplier_8bit_subcircuit.sub
+x1 clk rst start multiplier7 multiplier6 multiplier5 multiplier4 multiplier3 multiplier2 multiplier1 multiplier0 multiplicand7 multiplicand6 multiplicand5 multiplicand4 multiplicand3 multiplicand2 multiplicand1 multiplicand0 out15 out14 out13 out12 out11 out10 out9 out8 out7 out6 out5 out4 out3 out2 out1 out0 done boothmultiplier_8bit_subcircuit
+v1  multiplier1 gnd pulse(0 0 0 0 0 1000n 2000n)
+v3  multiplier2 gnd pulse(5 5 0 0 0 1000n 2000n)
+v5  multiplier3 gnd pulse(0 0 0 0 0 1000n 2000n)
+v7  multiplier4 gnd pulse(0 0 0 0 0 1000n 2000n)
+v9  multiplier5 gnd pulse(0 0 0 0 0 1000n 2000n)
+v11  multiplier6 gnd pulse(0 0 0 0 0 1000n 2000n)
+v13  multiplier7 gnd pulse(0 0 0 0 0 1000n 2000n)
+v15  start gnd pulse(0 5 70n 0 0 1000n 2000n)
+v16  rst gnd pulse(5 0 50n 0 0 1000n 2000n)
+v18  clk gnd pulse(0 5 0 0 0 10n 20n)
+v2  multiplier0 gnd pulse(5 5 0 0 0 1000n 2000n)
+v4  multiplicand7 gnd pulse(0 0 0 0 0 1000n 2000n)
+v6  multiplicand6 gnd pulse(0 0 0 0 0 1000n 2000n)
+v8  multiplicand5 gnd pulse(0 0 0 0 0 1000n 2000n)
+v10  multiplicand4 gnd pulse(0 0 0 0 0 1000n 2000n)
+v12  multiplicand3 gnd pulse(0 0 0 0 0 1000n 2000n)
+v14  multiplicand2 gnd pulse(5 5 0 0 0 1000n 2000n)
+v17  multiplicand1 gnd pulse(0 0 0 0 0 1000n 2000n)
+* u20  out15 plot_v1
+* u22  out14 plot_v1
+* u25  out13 plot_v1
+* u28  out12 plot_v1
+* u30  out11 plot_v1
+* u32  out10 plot_v1
+* u34  out9 plot_v1
+* u36  out8 plot_v1
+* u21  done plot_v1
+* u23  out0 plot_v1
+* u26  out2 plot_v1
+* u27  out3 plot_v1
+* u29  out4 plot_v1
+* u31  out5 plot_v1
+* u33  out6 plot_v1
+* u18  clk plot_v1
+v19  multiplicand0 gnd pulse(0 0 0 0 0 1000n 2000n)
+* u16  rst plot_v1
+* u15  start plot_v1
+* u13  multiplier7 plot_v1
+* u11  multiplier6 plot_v1
+* u9  multiplier5 plot_v1
+* u7  multiplier4 plot_v1
+* u6  multiplier3 plot_v1
+* u3  multiplier2 plot_v1
+* u1  multiplier1 plot_v1
+* u19  multiplicand0 plot_v1
+* u17  multiplicand1 plot_v1
+* u14  multiplicand2 plot_v1
+* u12  multiplicand3 plot_v1
+* u10  multiplicand4 plot_v1
+* u8  multiplicand5 plot_v1
+* u5  multiplicand6 plot_v1
+* u4  multiplicand7 plot_v1
+* u2  multiplier0 plot_v1
+* u24  out1 plot_v1
+* u35  out7 plot_v1
+.tran 1e-09 1000e-09 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+set xbrushwidth =3
+plot v(out15)+6v(out14)+12v(out13)+18v(out12)+24v(out11)+30v(out10)+36v(out9)+42v(out8)+48v(out7)+54v(out6)+60v(out5)+66v(out3)+72v(out2)+78v(out1)+84v(out0)+90v(done)
+
+
+
+plot v(clk)+6v(rst)+12v(start)+18v(mutlipicand0)+24v(mutlipicand1)+30v(mutlipicand2)+36v(mutlipicand3)+42v(mutlipicand4)+48v(mutlipicand5)+54v(mutlipicand6)+60v(mutlipicand7)+66v(multiplier0)+72v(multiplier0)+78v(multiplier0)+84v(multiplier0)+90v(multiplier0)+96v(multiplier0)+102v(multiplier0)+108v(multiplier0)
+
+.endc
+.end

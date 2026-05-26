@@ -1,0 +1,114 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# PWR_FLAG
+#
+DEF PWR_FLAG #FLG 0 0 N N 1 F P
+F0 "#FLG" 0 75 50 H I C CNN
+F1 "PWR_FLAG" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+X pwr 1 0 0 0 U 50 50 0 0 w
+P 6 0 1 0 0 0 0 50 -40 75 0 100 40 75 0 50 N
+ENDDRAW
+ENDDEF
+#
+# boothmultiplier_8bit_ip
+#
+DEF boothmultiplier_8bit_ip x 0 40 Y Y 1 F N
+F0 "x" 0 0 60 H V C CNN
+F1 "boothmultiplier_8bit_ip" 0 900 60 H V C CNN
+F2 "" 0 0 60 H I C CNN
+F3 "" 0 0 60 H I C CNN
+DRAW
+S -550 1000 550 -2100 0 1 0 N
+X clk 1 -750 750 200 R 50 50 1 1 I
+X rst 2 -750 600 200 R 50 50 1 1 I
+X start 3 -750 450 200 R 50 50 1 1 I
+X multiplier7 4 -750 300 200 R 50 50 1 1 I
+X multiplier6 5 -750 150 200 R 50 50 1 1 I
+X multiplier5 6 -750 0 200 R 50 50 1 1 I
+X multiplier4 7 -750 -150 200 R 50 50 1 1 I
+X multiplier3 8 -750 -300 200 R 50 50 1 1 I
+X multiplier2 9 -750 -450 200 R 50 50 1 1 I
+X multiplier1 10 -750 -600 200 R 50 50 1 1 I
+X product15 20 750 750 200 L 50 50 1 1 O
+X product5 30 750 -750 200 L 50 50 1 1 O
+X multiplier0 11 -750 -750 200 R 50 50 1 1 I
+X product14 21 750 600 200 L 50 50 1 1 O
+X product4 31 750 -900 200 L 50 50 1 1 O
+X multiplicand7 12 -750 -900 200 R 50 50 1 1 I
+X product13 22 750 450 200 L 50 50 1 1 O
+X product3 32 750 -1050 200 L 50 50 1 1 O
+X multiplicand6 13 -750 -1050 200 R 50 50 1 1 I
+X product12 23 750 300 200 L 50 50 1 1 O
+X product2 33 750 -1200 200 L 50 50 1 1 O
+X multiplicand5 14 -750 -1200 200 R 50 50 1 1 I
+X product11 24 750 150 200 L 50 50 1 1 O
+X product1 34 750 -1350 200 L 50 50 1 1 O
+X multiplicand4 15 -750 -1350 200 R 50 50 1 1 I
+X product10 25 750 0 200 L 50 50 1 1 O
+X product0 35 750 -1500 200 L 50 50 1 1 O
+X multiplicand3 16 -750 -1500 200 R 50 50 1 1 I
+X product9 26 750 -150 200 L 50 50 1 1 O
+X done 36 750 -1650 200 L 50 50 1 1 O
+X multiplicand2 17 -750 -1650 200 R 50 50 1 1 I
+X product8 27 750 -300 200 L 50 50 1 1 O
+X multiplicand1 18 -750 -1800 200 R 50 50 1 1 I
+X product7 28 750 -450 200 L 50 50 1 1 O
+X multiplicand0 19 -750 -1950 200 R 50 50 1 1 I
+X product6 29 750 -600 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+# eSim_GND
+#
+DEF eSim_GND #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "eSim_GND" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# plot_v1
+#
+DEF plot_v1 U 0 40 Y Y 1 F N
+F0 "U" 0 500 60 H V C CNN
+F1 "plot_v1" 200 350 60 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+C 0 500 100 0 1 0 N
+X ~ ~ 0 200 200 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# pulse
+#
+DEF pulse v 0 40 Y Y 1 F N
+F0 "v" -200 100 60 H V C CNN
+F1 "pulse" -200 -50 60 H V C CNN
+F2 "R1" -300 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ 1_pin
+$ENDFPLIST
+DRAW
+A -25 -450 501 928 871 0 1 0 N -50 50 0 50
+A 25 400 451 -931 -868 0 1 0 N 0 -50 50 -50
+A 75 600 551 -926 -873 0 1 0 N 50 50 100 50
+A 350 0 403 -1728 1728 0 1 0 N -50 -50 -50 50
+A 450 0 453 1736 -1736 0 1 0 N 0 50 0 -50
+A 600 0 552 -1748 1748 0 1 0 N 50 -50 50 50
+C 0 0 150 0 1 0 N
+X + 1 0 450 300 D 50 50 1 1 P
+X - 2 0 -450 300 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library
