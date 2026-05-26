@@ -1,0 +1,136 @@
+* c:\users\chaitanya\esim-workspace\cordic_test\cordic_test.cir
+
+.include cordic_subcircuit.sub
+x1 clk rst in15 in14 in13 in12 in11 in10 in9 in8 in7 in6 in5 in4 in3 in2 in1 in0 start sin15 sin14 sin13 sin12 sin11 sin10 sin9 sin8 sin7 sin6 sin5 sin4 sin3 sin2 sin1 sin0 cos15 cos14 cos13 cos12 cos11 cos10 cos9 cos8 cos7 cos6 cos5 cos4 cos3 cos2 cos1 cos0 done cordic_subcircuit
+v1  in8 gnd pulse(0 0 0 0 0 500n 1000n)
+v3  in9 gnd pulse(0 0 0 0 0 500n 1000n)
+v5  in10 gnd pulse(0 0 0 0 0 500n 1000n)
+v8  in11 gnd pulse(0 0 0 0 0 500n 1000n)
+v10  in12 gnd pulse(0 0 0 0 0 500n 1000n)
+v12  in13 gnd pulse(0 5 50n 0 0 500n 1000n)
+v14  in14 gnd pulse(0 5 50n 0 0 500n 1000n)
+v16  in15 gnd pulse(0 0 0 0 0 500n 1000n)
+v18  rst gnd pulse(0 5 30n 0 0 500n 600n)
+v19  clk gnd pulse(0 5 0 0 0 5n 10n)
+v2  in7 gnd pulse(0 0 0 0 0 500n 1000n)
+v4  in6 gnd pulse(0 0 0 0 0 500n 1000n)
+v6  in5 gnd pulse(0 0 0 0 0 500n 1000n)
+v7  in4 gnd pulse(0 0 0 0 0 500n 1000n)
+v9  in3 gnd pulse(0 0 0 0 0 500n 1000n)
+v11  in2 gnd pulse(0 5 50n 0 0 500n 600n)
+v13  in1 gnd pulse(0 5 50n 0 0 500n 1000n)
+v15  in0 gnd pulse(0 0 0 0 0 500n 1000n)
+v17  start gnd pulse(0 5 50n 0 0 500n 600n)
+* u22  sin15 plot_v1
+* u26  sin14 plot_v1
+* u28  sin13 plot_v1
+* u31  sin12 plot_v1
+* u33  sin11 plot_v1
+* u35  sin10 plot_v1
+* u37  sin9 plot_v1
+* u39  sin8 plot_v1
+* u41  sin7 plot_v1
+* u42  sin6 plot_v1
+* u44  sin5 plot_v1
+* u46  sin4 plot_v1
+* u48  sin3 plot_v1
+* u49  sin2 plot_v1
+* u51  sin1 plot_v1
+* u52  sin0 plot_v1
+* u21  cos15 plot_v1
+* u25  cos14 plot_v1
+* u29  cos13 plot_v1
+* u32  cos12 plot_v1
+* u36  cos11 plot_v1
+* u38  cos10 plot_v1
+* u40  cos9 plot_v1
+* u43  cos8 plot_v1
+* u45  cos7 plot_v1
+* u47  cos6 plot_v1
+* u50  cos5 plot_v1
+* u23  cos4 plot_v1
+* u27  cos3 plot_v1
+* u30  cos2 plot_v1
+* u34  cos1 plot_v1
+* u20  done plot_v1
+* u24  cos0 plot_v1
+* u19  clk plot_v1
+* u16  in15 plot_v1
+* u14  in14 plot_v1
+* u12  in13 plot_v1
+* u10  in12 plot_v1
+* u8  in11 plot_v1
+* u6  in10 plot_v1
+* u3  in9 plot_v1
+* u1  in8 plot_v1
+* u18  start plot_v1
+* u15  in0 plot_v1
+* u13  in1 plot_v1
+* u11  in2 plot_v1
+* u9  in3 plot_v1
+* u7  in4 plot_v1
+* u5  in5 plot_v1
+* u4  in6 plot_v1
+* u2  in7 plot_v1
+* u17  rst plot_v1
+.tran 1e-09 500e-09 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(sin15)
+plot v(sin14)
+plot v(sin13)
+plot v(sin12)
+plot v(sin11)
+plot v(sin10)
+plot v(sin9)
+plot v(sin8)
+plot v(sin7)
+plot v(sin6)
+plot v(sin5)
+plot v(sin4)
+plot v(sin3)
+plot v(sin2)
+plot v(sin1)
+plot v(sin0)
+plot v(cos15)
+plot v(cos14)
+plot v(cos13)
+plot v(cos12)
+plot v(cos11)
+plot v(cos10)
+plot v(cos9)
+plot v(cos8)
+plot v(cos7)
+plot v(cos6)
+plot v(cos5)
+plot v(cos4)
+plot v(cos3)
+plot v(cos2)
+plot v(cos1)
+plot v(done)
+plot v(cos0)
+plot v(clk)
+plot v(in15)
+plot v(in14)
+plot v(in13)
+plot v(in12)
+plot v(in11)
+plot v(in10)
+plot v(in9)
+plot v(in8)
+plot v(start)
+plot v(in0)
+plot v(in1)
+plot v(in2)
+plot v(in3)
+plot v(in4)
+plot v(in5)
+plot v(in6)
+plot v(in7)
+plot v(rst)
+.endc
+.end
