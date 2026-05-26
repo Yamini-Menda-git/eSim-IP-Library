@@ -1,0 +1,53 @@
+* c:\users\chaitanya\esim-workspace\spi_test\spi_test.cir
+* Optimized: solver options added to speed up mixed-signal simulation
+
+.include spi_subcircuit.sub
+
+x1 clk rst start data_in7 data_in6 data_in5 data_in4 data_in3 data_in2 data_in1 data_in0 mdata_in7 mdata_in6 mdata_in5 mdata_in4 mdata_in3 mdata_in2 mdata_in1 mdata_in0 slave_sel slave0_7 slave0_6 slave0_5 slave0_4 slave0_3 slave0_2 slave0_1 slave0_0 slave1_7 slave1_6 slave1_5 slave1_4 slave1_3 slave1_2 slave1_1 slave1_0 done mparallel_data7 mparallel_data6 mparallel_data5 mparallel_data4 mparallel_data3 mparallel_data2 mparallel_data1 mparallel_data0 spi_subcircuit
+
+* Solver options - critical for mixed-signal speed
+* reltol/abstol: relaxed tolerances acceptable for digital signals (5V swing)
+* itl4: max iterations per timestep increased to avoid gmin stepping
+* itl1: max DC iterations
+.options reltol=1e-3 abstol=1e-6 vntol=1e-4 chgtol=1e-14
+.options itl4=100 itl1=200
+
+v20  clk       gnd pulse(0 5 0 0 0 10n 20n)
+v18  rst       gnd pulse(5 0 50n 0 0 1000n 2000n)
+v17  start     gnd pulse(0 5 70n 0 0 1000n 2000n)
+v15  data_in7  gnd pulse(5 5 0 0 0 1000n 2000n)
+v13  data_in6  gnd pulse(0 5 490n 0 0 1000n 2000n)
+v11  data_in5  gnd pulse(5 5 0 0 0 1000n 2000n)
+v9   data_in4  gnd pulse(0 5 490n 0 0 1000n 2000n)
+v7   data_in3  gnd pulse(0 0 0 0 0 1000n 2000n)
+v5   data_in2  gnd pulse(5 0 490n 0 0 600n 1000n)
+v3   data_in1  gnd pulse(0 0 0 0 0 1000n 2000n)
+v2   data_in0  gnd pulse(5 0 490n 0 0 600n 1000n)
+v1   mdata_in7 gnd pulse(0 0 0 0 0 1000n 2000n)
+v4   mdata_in6 gnd pulse(0 5 490n 0 0 1000n 2000n)
+v6   mdata_in5 gnd pulse(5 0 490n 0 0 1000n 2000n)
+v8   mdata_in4 gnd pulse(5 5 0 0 0 1000n 2000n)
+v10  mdata_in3 gnd pulse(5 0 490n 0 0 1000n 2000n)
+v12  mdata_in2 gnd pulse(5 5 0 0 0 1000n 2000n)
+v14  mdata_in1 gnd pulse(0 0 0 0 0 1000n 2000n)
+v16  mdata_in0 gnd pulse(0 5 490n 0 0 1000n 2000n)
+v19  slave_sel gnd pulse(0 5 490n 0 0 1000n 2000n)
+
+.tran 1e-09 2000e-09 0e-00
+
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(clk) v(rst) v(start)
+plot v(data_in7) v(data_in6) v(data_in5) v(data_in4) v(data_in3) v(data_in2) v(data_in1) v(data_in0)
+plot v(slave_sel)
+plot v(mdata_in7) v(mdata_in6) v(mdata_in5) v(mdata_in4) v(mdata_in3) v(mdata_in2) v(mdata_in1) v(mdata_in0)
+plot v(slave0_7) v(slave0_6) v(slave0_5) v(slave0_4) v(slave0_3) v(slave0_2) v(slave0_1) v(slave0_0)
+plot v(slave1_7) v(slave1_6) v(slave1_5) v(slave1_4) v(slave1_3) v(slave1_2) v(slave1_1) v(slave1_0)
+plot v(done)
+plot v(mparallel_data7) v(mparallel_data6) v(mparallel_data5) v(mparallel_data4)
+plot v(mparallel_data3) v(mparallel_data2) v(mparallel_data1) v(mparallel_data0)
+.endc
+
+.end
