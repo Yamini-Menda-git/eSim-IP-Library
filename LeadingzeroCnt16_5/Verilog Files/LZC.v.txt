@@ -1,0 +1,82 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10.04.2026 22:42:53
+// Design Name: 
+// Module Name: LZD
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module LZD (
+    input [15:0] in,
+    output [3:0] out,
+    output all_zeros
+);
+    wire [1:0] z0, z1, z2, z3;
+    wire a0, a1, a2, a3;
+    reg [1:0] q32; // Higher bits from Leading Zero Encoder
+    reg [1:0] q10; // Lower bits selected via MUX
+
+    // Instantiate four 4-bit LZC blocks
+    lzc4 block0 (in[15:12], z0, a0); // MSB nibble
+    lzc4 block1 (in[11:8],  z1, a1);
+    lzc4 block2 (in[7:4],   z2, a2);
+    lzc4 block3 (in[3:0],   z3, a3);
+
+    // Leading Zero Encoder Logic (Generates Q3 and Q2)
+    always @(*) begin
+        casez({a0, a1, a2, a3})
+            4'b0???: q32 = 2'b00; // First 1 is in nibble 0
+            4'b10??: q32 = 2'b01; // First 1 is in nibble 1
+            4'b110?: q32 = 2'b10; // First 1 is in nibble 2
+            4'b1110: q32 = 2'b11; // First 1 is in nibble 3
+            default: q32 = 2'b11; // All zeros
+        endcase
+    end
+
+    // 4:1 MUX to select the lower bits (Q1 and Q0)
+    always @(*) begin
+        case(q32)
+            2'b00: q10 = z0;
+            2'b01: q10 = z1;
+            2'b10: q10 = z2;
+            2'b11: q10 = z3;
+        endcase
+    end
+
+    assign out = {q32, q10}; // Final 4-bit count
+    assign all_zeros = a0 & a1 & a2 & a3; // Global zero indicator
+
+endmodule
+module lzc4 (
+    input [3:0] x,
+    output reg [1:0] z,
+    output a
+);
+    // 'a' is 1 if all input bits are zero
+    assign a = (x == 4'b0000);
+
+    // Count leading zeros based on the truth table
+    always @(*) begin
+        casez(x)
+            4'b1???: z = 2'b00; // 0 leading zeros
+            4'b01??: z = 2'b01; // 1 leading zero
+            4'b001?: z = 2'b10; // 2 leading zeros
+            4'b0001: z = 2'b11; // 3 leading zeros
+            default: z = 2'bxx; // All zeros case
+        endcase
+    end
+endmodule
