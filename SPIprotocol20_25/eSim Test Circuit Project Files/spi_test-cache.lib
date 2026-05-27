@@ -1,0 +1,123 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# PWR_FLAG
+#
+DEF PWR_FLAG #FLG 0 0 N N 1 F P
+F0 "#FLG" 0 75 50 H I C CNN
+F1 "PWR_FLAG" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+X pwr 1 0 0 0 U 50 50 0 0 w
+P 6 0 1 0 0 0 0 50 -40 75 0 100 40 75 0 50 N
+ENDDRAW
+ENDDEF
+#
+# eSim_GND
+#
+DEF eSim_GND #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "eSim_GND" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# plot_v1
+#
+DEF plot_v1 U 0 40 Y Y 1 F N
+F0 "U" 0 500 60 H V C CNN
+F1 "plot_v1" 200 350 60 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+C 0 500 100 0 1 0 N
+X ~ ~ 0 200 200 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# pulse
+#
+DEF pulse v 0 40 Y Y 1 F N
+F0 "v" -200 100 60 H V C CNN
+F1 "pulse" -200 -50 60 H V C CNN
+F2 "R1" -300 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ 1_pin
+$ENDFPLIST
+DRAW
+A -25 -450 501 928 871 0 1 0 N -50 50 0 50
+A 25 400 451 -931 -868 0 1 0 N 0 -50 50 -50
+A 75 600 551 -926 -873 0 1 0 N 50 50 100 50
+A 350 0 403 -1728 1728 0 1 0 N -50 -50 -50 50
+A 450 0 453 1736 -1736 0 1 0 N 0 50 0 -50
+A 600 0 552 -1748 1748 0 1 0 N 50 -50 50 50
+C 0 0 150 0 1 0 N
+X + 1 0 450 300 D 50 50 1 1 P
+X - 2 0 -450 300 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# spi_ip
+#
+DEF spi_ip x 0 40 Y Y 1 F N
+F0 "x" -1100 -700 60 H V C CNN
+F1 "spi_ip" -1200 1800 60 H V C CNN
+F2 "" -700 50 60 H I C CNN
+F3 "" -700 50 60 H I C CNN
+DRAW
+S -1700 1850 -600 -2050 0 1 0 N
+X clk 1 -1900 1700 200 R 50 50 1 1 I
+X reset 2 -1900 1550 200 R 50 50 1 1 I
+X start 3 -1900 1400 200 R 50 50 1 1 I
+X data_in7 4 -1900 1250 200 R 50 50 1 1 I
+X data_in6 5 -1900 1100 200 R 50 50 1 1 I
+X data_in5 6 -1900 950 200 R 50 50 1 1 I
+X data_in4 7 -1900 800 200 R 50 50 1 1 I
+X data_in3 8 -1900 650 200 R 50 50 1 1 I
+X data_in2 9 -1900 500 200 R 50 50 1 1 I
+X data_in1 10 -1900 350 200 R 50 50 1 1 I
+X slave_sel 20 -1900 -1150 200 R 50 50 1 1 I
+X slave1_data6 30 -400 350 200 L 50 50 1 1 O
+X mparallel_data5 40 -400 -1150 200 L 50 50 1 1 O
+X data_in0 11 -1900 200 200 R 50 50 1 1 I
+X slave0_data7 21 -400 1700 200 L 50 50 1 1 O
+X slave1_data5 31 -400 200 200 L 50 50 1 1 O
+X mparallel_data4 41 -400 -1300 200 L 50 50 1 1 O
+X mdata_in7 12 -1900 50 200 R 50 50 1 1 I
+X slave0_data6 22 -400 1550 200 L 50 50 1 1 O
+X slave1_data4 32 -400 50 200 L 50 50 1 1 O
+X mparallel_data3 42 -400 -1450 200 L 50 50 1 1 O
+X mdata_in6 13 -1900 -100 200 R 50 50 1 1 I
+X slave0_data5 23 -400 1400 200 L 50 50 1 1 O
+X slave1_data3 33 -400 -100 200 L 50 50 1 1 O
+X mparallel_data2 43 -400 -1600 200 L 50 50 1 1 O
+X mdata_in5 14 -1900 -250 200 R 50 50 1 1 I
+X slave0_data4 24 -400 1250 200 L 50 50 1 1 O
+X slave1_data2 34 -400 -250 200 L 50 50 1 1 O
+X mparallel_data1 44 -400 -1750 200 L 50 50 1 1 O
+X mdata_in4 15 -1900 -400 200 R 50 50 1 1 I
+X slave0_data3 25 -400 1100 200 L 50 50 1 1 O
+X slave1_data1 35 -400 -400 200 L 50 50 1 1 O
+X mparallel_data0 45 -400 -1900 200 L 50 50 1 1 O
+X mdata_in3 16 -1900 -550 200 R 50 50 1 1 I
+X slave0_data2 26 -400 950 200 L 50 50 1 1 O
+X slave1_data0 36 -400 -550 200 L 50 50 1 1 O
+X mdata_in2 17 -1900 -700 200 R 50 50 1 1 I
+X slave0_data1 27 -400 800 200 L 50 50 1 1 O
+X done 37 -400 -700 200 L 50 50 1 1 O
+X mdata_in1 18 -1900 -850 200 R 50 50 1 1 I
+X slave0_data0 28 -400 650 200 L 50 50 1 1 O
+X mparallel_data7 38 -400 -850 200 L 50 50 1 1 O
+X mdata_in0 19 -1900 -1000 200 R 50 50 1 1 I
+X slave1_data7 29 -400 500 200 L 50 50 1 1 O
+X mparallel_data6 39 -400 -1000 200 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+#End Library

@@ -1,0 +1,34 @@
+* c:\users\chaitanya\esim-workspace\wallace_encoder_test\wallace_encoder_test.cir
+
+.include wallace_encoder_subcircuit.sub
+x1 in_7 in_6 in_5 in_4 in_3 in_2 in_1 out_2 out_1 out_0 wallace_encoder_subcircuit
+v1  in_7 gnd pulse(0 5 0 0 0 50n 100n)
+v2  in_6 gnd pulse(5 0 0 0 0 50n 100n)
+v3  in_5 gnd pulse(5 0 0 0 0 50n 100n)
+v4  in_4 gnd pulse(0 0 0 0 0 50n 100n)
+v5  in_3 gnd pulse(0 0 0 0 0 50n 100n)
+v6  in_2 gnd pulse(5 0 0 0 0 50n 100n)
+v7  in_1 gnd pulse(5 0 0 0 0 50n 100n)
+* u8  out_2 plot_v1
+* u9  out_1 plot_v1
+* u10  out_0 plot_v1
+* u7  in_1 plot_v1
+* u6  in_2 plot_v1
+* u5  in_3 plot_v1
+* u4  in_4 plot_v1
+* u3  in_5 plot_v1
+* u2  in_6 plot_v1
+* u1  in_7 plot_v1
+.tran 1e-09 200e-09 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+set xbrushwidth =3 
+plot v(out_2) + 6 v(out_1) + 12 v(out_0)
+
+plot v(in_7) + 6 v(in_6) + 12 v(in_5) + 18  v(in_4) + 24 v(in_3) + 30  v(in_2)+ 36 v(in_1)
+.endc
+.end

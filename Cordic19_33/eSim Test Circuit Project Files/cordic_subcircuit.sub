@@ -1,0 +1,100 @@
+* Subcircuit cordic_subcircuit
+* CORRECTED: .subckt port list now includes ALL 52 external nets (U2=26 + U12=17 + U10=8 + U11=1)
+* Port mapping to cordic_ip:
+*   net-_u2-pad1_  = clk        (pin 1)
+*   net-_u2-pad2_  = ist        (pin 2)
+*   net-_u2-pad3_  = degree_in15 (pin 3)
+*   net-_u2-pad4_  = degree_in14 (pin 4)
+*   net-_u2-pad5_  = degree_in13 (pin 5)
+*   net-_u2-pad6_  = degree_in12 (pin 6)
+*   net-_u2-pad7_  = degree_in11 (pin 7)
+*   net-_u2-pad8_  = degree_in10 (pin 8)
+*   net-_u2-pad9_  = degree_in9  (pin 9)
+*   net-_u2-pad10_ = degree_in8  (pin 10)
+*   net-_u2-pad11_ = degree_in7  (pin 11)
+*   net-_u2-pad12_ = degree_in6  (pin 12)
+*   net-_u2-pad13_ = degree_in5  (pin 13)
+*   net-_u2-pad14_ = degree_in4  (pin 14)
+*   net-_u2-pad15_ = degree_in3  (pin 15)
+*   net-_u2-pad16_ = degree_in2  (pin 16)
+*   net-_u2-pad17_ = degree_in1  (pin 17)
+*   net-_u2-pad18_ = degree_in0  (pin 18)
+*   net-_u2-pad19_ = start       (pin 19)
+*   net-_u2-pad20_ = sin_out15   (pin 20)
+*   net-_u2-pad21_ = sin_out14   (pin 21)
+*   net-_u2-pad22_ = sin_out13   (pin 22)
+*   net-_u2-pad23_ = sin_out12   (pin 23)
+*   net-_u2-pad24_ = sin_out11   (pin 24)
+*   net-_u2-pad25_ = sin_out10   (pin 25)
+*   net-_u2-pad26_ = sin_out9    (pin 26)
+*   net-_u12-pad1_ = sin_out8    (pin 27)
+*   net-_u12-pad2_ = sin_out7    (pin 28)
+*   net-_u12-pad3_ = sin_out6    (pin 29)
+*   net-_u12-pad4_ = sin_out5    (pin 30)
+*   net-_u12-pad5_ = sin_out4    (pin 31)
+*   net-_u12-pad6_ = sin_out3    (pin 32)
+*   net-_u12-pad7_ = sin_out2    (pin 33)
+*   net-_u12-pad8_ = sin_out1    (pin 34)
+*   net-_u12-pad9_ = sin_out0    (pin 35)
+*   net-_u12-pad10_= cos_out15   (pin 36)
+*   net-_u12-pad11_= cos_out14   (pin 37)
+*   net-_u12-pad12_= cos_out13   (pin 38)
+*   net-_u12-pad13_= cos_out12   (pin 39)
+*   net-_u12-pad14_= cos_out11   (pin 40)
+*   net-_u12-pad15_= cos_out10   (pin 41)
+*   net-_u12-pad16_= cos_out9    (pin 42)
+*   net-_u12-pad17_= cos_out8    (pin 43)
+*   net-_u10-pad9_ = cos_out7    (pin 44)
+*   net-_u10-pad10_= cos_out6    (pin 45)
+*   net-_u10-pad11_= cos_out5    (pin 46)
+*   net-_u10-pad12_= cos_out4    (pin 47)
+*   net-_u10-pad13_= cos_out3    (pin 48)
+*   net-_u10-pad14_= cos_out2    (pin 49)
+*   net-_u10-pad15_= cos_out1    (pin 50)
+*   net-_u10-pad16_= cos_out0    (pin 51)
+*   net-_u11-pad2_ = done        (pin 52)
+.subckt cordic_subcircuit net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ net-_u2-pad13_ net-_u2-pad14_ net-_u2-pad15_ net-_u2-pad16_ net-_u2-pad17_ net-_u2-pad18_ net-_u2-pad19_ net-_u2-pad20_ net-_u2-pad21_ net-_u2-pad22_ net-_u2-pad23_ net-_u2-pad24_ net-_u2-pad25_ net-_u2-pad26_ net-_u12-pad1_ net-_u12-pad2_ net-_u12-pad3_ net-_u12-pad4_ net-_u12-pad5_ net-_u12-pad6_ net-_u12-pad7_ net-_u12-pad8_ net-_u12-pad9_ net-_u12-pad10_ net-_u12-pad11_ net-_u12-pad12_ net-_u12-pad13_ net-_u12-pad14_ net-_u12-pad15_ net-_u12-pad16_ net-_u12-pad17_ net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ net-_u11-pad2_
+* c:\fossee\esim\library\subcircuitlibrary\cordic_subcircuit\cordic_subcircuit.cir
+* u1  net-_u1-pad1_ ... net-_u1-pad52_ cordic
+* u5  net-_u2-pad11_ ... net-_u1-pad18_ adc_bridge_8
+* u4  net-_u2-pad3_ ...  net-_u1-pad10_ adc_bridge_8
+* u3  net-_u2-pad1_ net-_u2-pad2_ net-_u1-pad1_ net-_u1-pad2_ adc_bridge_2
+* u6  net-_u2-pad19_ net-_u1-pad19_ adc_bridge_1
+* u7  net-_u1-pad20_..net-_u1-pad27_ -> net-_u2-pad20_..net-_u2-pad26_ + net-_u12-pad1_ dac_bridge_8
+* u8  net-_u1-pad28_..net-_u1-pad35_ -> net-_u12-pad2_..net-_u12-pad9_ dac_bridge_8
+* u9  net-_u1-pad36_..net-_u1-pad43_ -> net-_u12-pad10_..net-_u12-pad17_ dac_bridge_8
+* u10 net-_u1-pad44_..net-_u1-pad51_ -> net-_u10-pad9_..net-_u10-pad16_ dac_bridge_8
+* u11 net-_u1-pad52_ -> net-_u11-pad2_ dac_bridge_1
+a1 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u1-pad3_ net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_ net-_u1-pad17_ net-_u1-pad18_ ] [net-_u1-pad19_ ] [net-_u1-pad20_ net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ net-_u1-pad28_ net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ ] [net-_u1-pad36_ net-_u1-pad37_ net-_u1-pad38_ net-_u1-pad39_ net-_u1-pad40_ net-_u1-pad41_ net-_u1-pad42_ net-_u1-pad43_ net-_u1-pad44_ net-_u1-pad45_ net-_u1-pad46_ net-_u1-pad47_ net-_u1-pad48_ net-_u1-pad49_ net-_u1-pad50_ net-_u1-pad51_ ] [net-_u1-pad52_ ] u1
+a2 [net-_u2-pad11_ net-_u2-pad12_ net-_u2-pad13_ net-_u2-pad14_ net-_u2-pad15_ net-_u2-pad16_ net-_u2-pad17_ net-_u2-pad18_ ] [net-_u1-pad11_ net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_ net-_u1-pad17_ net-_u1-pad18_ ] u5
+a3 [net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ ] [net-_u1-pad3_ net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ ] u4
+a4 [net-_u2-pad1_ net-_u2-pad2_ ] [net-_u1-pad1_ net-_u1-pad2_ ] u3
+a5 [net-_u2-pad19_ ] [net-_u1-pad19_ ] u6
+a6 [net-_u1-pad20_ net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ ] [net-_u2-pad20_ net-_u2-pad21_ net-_u2-pad22_ net-_u2-pad23_ net-_u2-pad24_ net-_u2-pad25_ net-_u2-pad26_ net-_u12-pad1_ ] u7
+a7 [net-_u1-pad28_ net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ ] [net-_u12-pad2_ net-_u12-pad3_ net-_u12-pad4_ net-_u12-pad5_ net-_u12-pad6_ net-_u12-pad7_ net-_u12-pad8_ net-_u12-pad9_ ] u8
+a8 [net-_u1-pad36_ net-_u1-pad37_ net-_u1-pad38_ net-_u1-pad39_ net-_u1-pad40_ net-_u1-pad41_ net-_u1-pad42_ net-_u1-pad43_ ] [net-_u12-pad10_ net-_u12-pad11_ net-_u12-pad12_ net-_u12-pad13_ net-_u12-pad14_ net-_u12-pad15_ net-_u12-pad16_ net-_u12-pad17_ ] u9
+a9 [net-_u1-pad44_ net-_u1-pad45_ net-_u1-pad46_ net-_u1-pad47_ net-_u1-pad48_ net-_u1-pad49_ net-_u1-pad50_ net-_u1-pad51_ ] [net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ ] u10
+a10 [net-_u1-pad52_ ] [net-_u11-pad2_ ] u11
+* Schematic Name: cordic, NgSpice Name: cordic
+.model u1 cordic(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 )
+* Schematic Name: adc_bridge_8, NgSpice Name: adc_bridge
+.model u5 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: adc_bridge_8, NgSpice Name: adc_bridge
+.model u4 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: adc_bridge_2, NgSpice Name: adc_bridge
+.model u3 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: adc_bridge_1, NgSpice Name: adc_bridge
+.model u6 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u7 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u8 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u9 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u10 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_1, NgSpice Name: dac_bridge
+.model u11 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Control Statements
+
+.ends cordic_subcircuit

@@ -1,0 +1,62 @@
+* c:\users\chaitanya\esim-workspace\ladner_fischer_adder_test\ladner_fischer_adder_test.cir
+
+.include ladner_fischer_adder_subcircuit.sub
+x1 a7 a6 a5 a4 a3 a2 a1 a0 b7 b6 b5 b4 b3 b2 b1 b0 cin sum7 sum6 sum5 sum4 sum3 sum2 sum1 sum0 cout ladner_fischer_adder_subcircuit
+v2  a0 gnd pulse(0 5 10n 0 0 100n 200n)
+v4  a1 gnd pulse(0 5 10n 0 0 100n 200n)
+v6  a2 gnd pulse(0 5 10n 0 0 100n 200n)
+v8  a3 gnd pulse(0 5 10n 0 0 100n 200n)
+v10  a4 gnd pulse(0 5 50n 0 0 100n 200n)
+v12  a5 gnd pulse(0 5 50n 0 0 100n 200n)
+v14  a6 gnd pulse(0 5 50n 0 0 100n 200n)
+v16  a7 gnd pulse(0 5 50n 0 0 100n 200n)
+v1  b7 gnd pulse(0 0 0 0 0 100n 200n)
+v3  b6 gnd pulse(0 0 0 0 0 100n 200n)
+v5  b5 gnd pulse(0 0 0 0 0 100n 200n)
+v7  b4 gnd pulse(0 0 0 0 0 100n 200n)
+v9  b3 gnd pulse(0 5 10n 0 0 100n 200n)
+v11  b2 gnd pulse(0 5 50n 0 0 100n 200n)
+v13  b1 gnd pulse(0 5 10n 0 0 100n 200n)
+v15  b0 gnd pulse(0 5 50n 0 0 100n 200n)
+v17  cin gnd pulse(0 5 10n 0 0 100n 200n)
+* u18  sum7 plot_v1
+* u19  sum6 plot_v1
+* u20  sum5 plot_v1
+* u21  sum4 plot_v1
+* u22  sum3 plot_v1
+* u23  sum2 plot_v1
+* u24  sum1 plot_v1
+* u25  sum0 plot_v1
+* u26  cout plot_v1
+* u16  a7 plot_v1
+* u14  a6 plot_v1
+* u12  a5 plot_v1
+* u10  a4 plot_v1
+* u8  a3 plot_v1
+* u6  a2 plot_v1
+* u4  a1 plot_v1
+* u2  a0 plot_v1
+* u17  cin plot_v1
+* u15  b0 plot_v1
+* u13  b1 plot_v1
+* u11  b2 plot_v1
+* u9  b3 plot_v1
+* u7  b4 plot_v1
+* u5  b5 plot_v1
+* u3  b6 plot_v1
+* u1  b7 plot_v1
+.tran 1e-09 100e-09 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+set xbrushwidth =3
+plot v(b0)+6v(b1)+12v(b2)+18v(b3)+24v(b4)+30v(b5)+36v(b6)+42v(b7)
+
+plot v(a0)+6v(a1)+12v(a2)+18v(a3)+24v(a4)+30v(a5)+36v(a6)+42v(a7)+48v(cin)
+
+plot v(sum0)+6v(sum1)+12v(sum2)+18v(sum3)+24v(sum4)+30v(sum5)+36v(sum6)+42v(sum7)+48v(cout)
+.endc
+.end

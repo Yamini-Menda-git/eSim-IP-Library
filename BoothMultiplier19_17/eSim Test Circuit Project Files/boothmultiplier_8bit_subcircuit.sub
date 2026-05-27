@@ -1,0 +1,56 @@
+* Subcircuit boothmultiplier_8bit_subcircuit
+* External ports (29 total):
+*   Inputs  (19): clk0, reset0, start0, multiplier[7:0], multiplicand[7:0]
+*   Outputs (17): product[15:0] (16 bits), done
+* Port order: U2 analog inputs first (pads 1-19), then U9 analog outputs (pads 1-17)
+.subckt boothmultiplier_8bit_subcircuit Net-_U2-Pad1_ Net-_U2-Pad2_ Net-_U2-Pad3_ Net-_U2-Pad4_ Net-_U2-Pad5_ Net-_U2-Pad6_ Net-_U2-Pad7_ Net-_U2-Pad8_ Net-_U2-Pad9_ Net-_U2-Pad10_ Net-_U2-Pad11_ Net-_U2-Pad12_ Net-_U2-Pad13_ Net-_U2-Pad14_ Net-_U2-Pad15_ Net-_U2-Pad16_ Net-_U2-Pad17_ Net-_U2-Pad18_ Net-_U2-Pad19_ Net-_U9-Pad1_ Net-_U9-Pad2_ Net-_U9-Pad3_ Net-_U9-Pad4_ Net-_U9-Pad5_ Net-_U9-Pad6_ Net-_U9-Pad7_ Net-_U9-Pad8_ Net-_U9-Pad9_ Net-_U9-Pad10_ Net-_U9-Pad11_ Net-_U9-Pad12_ Net-_U9-Pad13_ Net-_U9-Pad14_ Net-_U9-Pad15_ Net-_U9-Pad16_ Net-_U9-Pad17_
+* c:\fossee\esim\library\subcircuitlibrary\boothmultiplier_8bit_subcircuit\boothmultiplier_8bit_subcircuit.cir
+* u1  net-_u1-pad1_ ... net-_u1-pad36_ booth_multiplier_8bit
+* u3  net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ adc_bridge_3
+* u4  net-_u2-pad4_ ... net-_u2-pad11_ net-_u1-pad4_ ... net-_u1-pad11_ adc_bridge_8
+* u5  net-_u2-pad12_ ... net-_u2-pad19_ net-_u1-pad12_ ... net-_u1-pad19_ adc_bridge_8
+* u6  net-_u1-pad20_ ... net-_u1-pad27_ net-_u9-pad1_ ... net-_u9-pad8_ dac_bridge_8
+* u7  net-_u1-pad28_ ... net-_u1-pad35_ net-_u9-pad9_ ... net-_u9-pad16_ dac_bridge_8
+* u8  net-_u1-pad36_ net-_u9-pad17_ dac_bridge_1
+
+* --- Digital core ---
+a1 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u1-pad3_ ] [net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ ] [net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_ net-_u1-pad17_ net-_u1-pad18_ net-_u1-pad19_ ] [net-_u1-pad20_ net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ net-_u1-pad28_ net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ ] [net-_u1-pad36_ ] u1
+
+* --- ADC bridges (analog -> digital) ---
+* U3: adc_bridge_3 — clk0, reset0, start0
+a4 [net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ ] [net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ ] u3
+
+* U4: adc_bridge_8 — multiplier[7:0]
+a3 [net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ ] [net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ ] u4
+
+* U5: adc_bridge_8 — multiplicand[7:0]
+a2 [net-_u2-pad12_ net-_u2-pad13_ net-_u2-pad14_ net-_u2-pad15_ net-_u2-pad16_ net-_u2-pad17_ net-_u2-pad18_ net-_u2-pad19_ ] [net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_ net-_u1-pad17_ net-_u1-pad18_ net-_u1-pad19_ ] u5
+
+* --- DAC bridges (digital -> analog) ---
+* U6: dac_bridge_8 — product[15:8]
+a5 [net-_u1-pad20_ net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ ] [net-_u9-pad1_ net-_u9-pad2_ net-_u9-pad3_ net-_u9-pad4_ net-_u9-pad5_ net-_u9-pad6_ net-_u9-pad7_ net-_u9-pad8_ ] u6
+
+* U7: dac_bridge_8 — product[7:0]
+a6 [net-_u1-pad28_ net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ ] [net-_u9-pad9_ net-_u9-pad10_ net-_u9-pad11_ net-_u9-pad12_ net-_u9-pad13_ net-_u9-pad14_ net-_u9-pad15_ net-_u9-pad16_ ] u7
+
+* U8: dac_bridge_1 — done
+a7 [net-_u1-pad36_ ] [net-_u9-pad17_ ] u8
+
+* --- Model definitions ---
+* Schematic Name: booth_multiplier_8bit, NgSpice Name: booth_multiplier_8bit
+.model u1 booth_multiplier_8bit(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 )
+* Schematic Name: adc_bridge_3, NgSpice Name: adc_bridge
+.model u3 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: adc_bridge_8, NgSpice Name: adc_bridge
+.model u4 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: adc_bridge_8, NgSpice Name: adc_bridge
+.model u5 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u6 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_8, NgSpice Name: dac_bridge
+.model u7 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Schematic Name: dac_bridge_1, NgSpice Name: dac_bridge
+.model u8 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 )
+* Control Statements
+
+.ends boothmultiplier_8bit_subcircuit

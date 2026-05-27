@@ -1,0 +1,144 @@
+EESchema Schematic File Version 2
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:power
+LIBS:eSim_Plot
+LIBS:transistors
+LIBS:conn
+LIBS:eSim_User
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:eSim_Analog
+LIBS:eSim_Devices
+LIBS:eSim_Digital
+LIBS:eSim_Hybrid
+LIBS:eSim_Miscellaneous
+LIBS:eSim_Power
+LIBS:eSim_Sources
+LIBS:eSim_Subckt
+LIBS:eSim_Nghdl
+LIBS:eSim_Ngveri
+LIBS:eSim_SKY130
+LIBS:eSim_SKY130_Subckts
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L booth_multiplier_8bit U?
+U 1 1 6A100AD2
+P 2800 4450
+F 0 "U?" H 5650 6250 60  0000 C CNN
+F 1 "booth_multiplier_8bit" H 5650 6450 60  0000 C CNN
+F 2 "" H 5650 6400 60  0000 C CNN
+F 3 "" H 5650 6400 60  0000 C CNN
+	1    2800 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L adc_bridge_8 U?
+U 1 1 6A100B21
+P 4400 3700
+F 0 "U?" H 4400 3700 60  0000 C CNN
+F 1 "adc_bridge_8" H 4400 3850 60  0000 C CNN
+F 2 "" H 4400 3700 60  0000 C CNN
+F 3 "" H 4400 3700 60  0000 C CNN
+	1    4400 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L adc_bridge_8 U?
+U 1 1 6A100B64
+P 4400 2900
+F 0 "U?" H 4400 2900 60  0000 C CNN
+F 1 "adc_bridge_8" H 4400 3050 60  0000 C CNN
+F 2 "" H 4400 2900 60  0000 C CNN
+F 3 "" H 4400 2900 60  0000 C CNN
+	1    4400 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L adc_bridge_3 U?
+U 1 1 6A100BB7
+P 4400 2600
+F 0 "U?" H 4400 2600 60  0000 C CNN
+F 1 "adc_bridge_3" H 4400 2750 60  0000 C CNN
+F 2 "" H 4400 2600 60  0000 C CNN
+F 3 "" H 4400 2600 60  0000 C CNN
+	1    4400 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L dac_bridge_8 U?
+U 1 1 6A100C22
+P 6950 2600
+F 0 "U?" H 6950 2600 60  0000 C CNN
+F 1 "dac_bridge_8" H 6950 2750 60  0000 C CNN
+F 2 "" H 6950 2600 60  0000 C CNN
+F 3 "" H 6950 2600 60  0000 C CNN
+	1    6950 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L dac_bridge_8 U?
+U 1 1 6A100C9F
+P 6950 3400
+F 0 "U?" H 6950 3400 60  0000 C CNN
+F 1 "dac_bridge_8" H 6950 3550 60  0000 C CNN
+F 2 "" H 6950 3400 60  0000 C CNN
+F 3 "" H 6950 3400 60  0000 C CNN
+	1    6950 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L dac_bridge_1 U?
+U 1 1 6A100CCA
+P 6950 4200
+F 0 "U?" H 6950 4200 60  0000 C CNN
+F 1 "dac_bridge_1" H 6950 4350 60  0000 C CNN
+F 2 "" H 6950 4200 60  0000 C CNN
+F 3 "" H 6950 4200 60  0000 C CNN
+	1    6950 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L PORT clk
+U 1 1 6A100D5D
+P 3550 2550
+F 0 "clk" H 3600 2650 30  0000 C CNN
+F 1 "PORT" H 3550 2550 30  0000 C CNN
+F 2 "" H 3550 2550 60  0000 C CNN
+F 3 "" H 3550 2550 60  0000 C CNN
+	1    3550 2550
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

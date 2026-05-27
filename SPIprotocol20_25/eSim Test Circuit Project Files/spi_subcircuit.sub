@@ -1,0 +1,50 @@
+* Subcircuit spi_subcircuit
+* Optimized: bridge delays minimized to reduce simulation lag
+* Port order EXACTLY matches spi_test_cir.out x1 instantiation:
+*   pos1=clk pos2=rst pos3=start
+*   pos4..11=data_in7..data_in0
+*   pos12..19=mdata_in7..mdata_in0
+*   pos20=slave_sel
+*   pos21..26=slave0_7..slave0_2  (via U2-pad21..26, DAC U6 pins9..14)
+*   pos27..28=slave0_1..slave0_0  (via U10-pad1..2,  DAC U6 pins15..16)
+*   pos29..36=slave1_7..slave1_0  (via U10-pad3..10, DAC U7 pins9..16)
+*   pos37=done                    (via U10-pad19,    DAC U9 pin2)
+*   pos38..45=mparallel_data7..0  (via U10-pad11..18,DAC U8 pins9..16)
+
+.subckt spi_subcircuit net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ net-_u2-pad13_ net-_u2-pad14_ net-_u2-pad15_ net-_u2-pad16_ net-_u2-pad17_ net-_u2-pad18_ net-_u2-pad19_ net-_u2-pad20_ net-_u2-pad21_ net-_u2-pad22_ net-_u2-pad23_ net-_u2-pad24_ net-_u2-pad25_ net-_u2-pad26_ net-_u10-pad1_ net-_u10-pad2_ net-_u10-pad3_ net-_u10-pad4_ net-_u10-pad5_ net-_u10-pad6_ net-_u10-pad7_ net-_u10-pad8_ net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad19_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ net-_u10-pad17_ net-_u10-pad18_
+
+* SPI core (a1)
+a1 [net-_u1-pad1_] [net-_u1-pad2_] [net-_u1-pad3_] [net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_] [net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_ net-_u1-pad17_ net-_u1-pad18_ net-_u1-pad19_] [net-_u1-pad20_] [net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ net-_u1-pad28_] [net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ net-_u1-pad36_] [net-_u1-pad37_] [net-_u1-pad38_ net-_u1-pad39_ net-_u1-pad40_ net-_u1-pad41_ net-_u1-pad42_ net-_u1-pad43_ net-_u1-pad44_ net-_u1-pad45_] u1
+
+* ADC Bridge U3 - 8-bit: U2-pad1..8 -> U1-pad1..8
+a2 [net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_] [net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_] u3
+
+* ADC Bridge U4 - 8-bit: U2-pad9..16 -> U1-pad9..16
+a3 [net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ net-_u2-pad13_ net-_u2-pad14_ net-_u2-pad15_ net-_u2-pad16_] [net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ net-_u1-pad12_ net-_u1-pad13_ net-_u1-pad14_ net-_u1-pad15_ net-_u1-pad16_] u4
+
+* ADC Bridge U5 - 4-bit: U2-pad17..20 -> U1-pad17..20
+a4 [net-_u2-pad17_ net-_u2-pad18_ net-_u2-pad19_ net-_u2-pad20_] [net-_u1-pad17_ net-_u1-pad18_ net-_u1-pad19_ net-_u1-pad20_] u5
+
+* DAC Bridge U6 - 8-bit: U1-pad21..28 -> U2-pad21..26 + U10-pad1..2
+a5 [net-_u1-pad21_ net-_u1-pad22_ net-_u1-pad23_ net-_u1-pad24_ net-_u1-pad25_ net-_u1-pad26_ net-_u1-pad27_ net-_u1-pad28_] [net-_u2-pad21_ net-_u2-pad22_ net-_u2-pad23_ net-_u2-pad24_ net-_u2-pad25_ net-_u2-pad26_ net-_u10-pad1_ net-_u10-pad2_] u6
+
+* DAC Bridge U7 - 8-bit: U1-pad29..36 -> U10-pad3..10
+a6 [net-_u1-pad29_ net-_u1-pad30_ net-_u1-pad31_ net-_u1-pad32_ net-_u1-pad33_ net-_u1-pad34_ net-_u1-pad35_ net-_u1-pad36_] [net-_u10-pad3_ net-_u10-pad4_ net-_u10-pad5_ net-_u10-pad6_ net-_u10-pad7_ net-_u10-pad8_ net-_u10-pad9_ net-_u10-pad10_] u7
+
+* DAC Bridge U8 - 8-bit: U1-pad38..45 -> U10-pad11..18
+a7 [net-_u1-pad38_ net-_u1-pad39_ net-_u1-pad40_ net-_u1-pad41_ net-_u1-pad42_ net-_u1-pad43_ net-_u1-pad44_ net-_u1-pad45_] [net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ net-_u10-pad17_ net-_u10-pad18_] u8
+
+* DAC Bridge U9 - 1-bit: U1-pad37 -> U10-pad19 (done)
+a8 [net-_u1-pad37_] [net-_u10-pad19_] u9
+
+* Model definitions - delays reduced to 0.1ns to minimize output lag
+.model u1 spi(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1)
+.model u3 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-10 fall_delay=1.0e-10)
+.model u4 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-10 fall_delay=1.0e-10)
+.model u5 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-10 fall_delay=1.0e-10)
+.model u6 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-10 t_fall=1.0e-10)
+.model u7 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-10 t_fall=1.0e-10)
+.model u8 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-10 t_fall=1.0e-10)
+.model u9 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-10 t_fall=1.0e-10)
+
+.ends spi_subcircuit
