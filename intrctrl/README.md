@@ -19,6 +19,9 @@ The controller receives interrupt requests and selects the highest priority inte
 * int_id_0 : Interrupt ID bit 0
 * int_id_1 : Interrupt ID bit 1
 
+## Block Diagram
+
+![Block Diagram](interrupt_block_diagram.png)
 ## Files Included
 
 * Verilog source file
