@@ -36,6 +36,11 @@ The controller filters noisy input signals such as push-button inputs and produc
 
 The module monitors the input signal and updates the output only after the input remains stable for the selected number of clock cycles.
 
+## Block Diagram
+
+![Block Diagram](debounce_block.png)
+
+
 ## Files Included
 
 * Verilog source file
