@@ -37,6 +37,10 @@ The shift register supports multiple operating modes including hold, shift left,
 * parallel_out[7:0] : Parallel register output
 * serial_out : Serial output data
 
+## Block Diagram
+
+![Block Diagram](usr_image.png)
+
 ## Files Included
 
 * Verilog source file
