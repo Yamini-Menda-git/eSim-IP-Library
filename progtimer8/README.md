@@ -30,6 +30,10 @@ The timer supports one-shot mode and periodic mode operation. A programmable loa
 * timer_interrupt : Timer interrupt output
 * current_count[7:0] : Current counter value
 
+## Block Diagram
+
+![Block Diagram](programmable_timer.png)
+
 ## Files Included
 
 * Verilog source file
