@@ -28,6 +28,10 @@ The arbiter grants access to one requester at a time using a round robin schedul
 
 The arbiter checks request signals based on the current pointer position and grants access to the next active requester in round robin order. After each successful grant, the priority pointer rotates to ensure fairness.
 
+## Block Diagram
+
+![Block Diagram](rra_image_1.png)
+
 ## Files Included
 
 * Verilog source file
