@@ -38,6 +38,10 @@ The serializer converts 4-bit parallel input data into serial data output. The d
 * data_out[3:0] : Parallel output data
 * done : Reception complete signal
 
+## Block Diagram
+
+![Block Diagram](serdes_image.png)
+
 ## Files Included
 
 * Serializer Verilog source file
