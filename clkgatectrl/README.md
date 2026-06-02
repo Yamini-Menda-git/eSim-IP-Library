@@ -17,6 +17,10 @@ The controller generates gated clocks based on enable signals. A test mode is in
 
 * gated_clk[3:0] : Gated clock outputs
 
+## Block Diagram
+
+![Block Diagram](clk.png)
+
 ## Files Included
 
 * Verilog source file
