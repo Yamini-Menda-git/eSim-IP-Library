@@ -39,6 +39,9 @@ The synchronizer safely transfers a pulse signal from one clock domain to anothe
 4. Acknowledge signal is sent back to source domain.
 5. Request is cleared after acknowledgment.
 
+## Block Diagram
+![Block Diagram](hand.png)
+
 ## Files Included
 
 * Verilog source file
